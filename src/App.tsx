@@ -55,6 +55,11 @@ function App() {
             setExpression("");
             return;
         }
+        
+        if (value === ".") {
+            const lastChar = expression[expression.length - 1];
+            if (OPERATORS.indexOf(lastChar) !== -1 || lastChar === "." || expression === "") return;
+        }
 
         setExpression((_expression) => `${_expression}${value}`);
     };
